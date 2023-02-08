@@ -1,0 +1,54 @@
+.payment_history_hero{
+    background-image: url("../assets/images/IMG-20221026-WA0009.jpg");
+    background-size:cover;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: row;
+}
+
+.comp_name{
+    font-family: remachine;
+    font-size: 4rem;
+    width: 50%;
+    color: white;
+}
+
+.home_link{
+    color:rgb(139, 250, 167);
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.payment_lists{
+    width:80%;
+    height: 60%;
+    margin-left: 10%;
+    background-color: white;
+    position: absolute;
+    top: 20%;
+    overflow-y: scroll;
+    list-style: none;
+}
+
+.table_titles{
+    background-color: #8866EF;
+    height: 2.5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.table{
+    width: 100%;
+}
+
+tr{
+    background-color: whitesmoke;
+    height: 2.5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.account_number,.bank_name,.amount_saved,.date{
+    text-align: center;
+}

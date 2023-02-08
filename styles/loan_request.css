@@ -1,0 +1,44 @@
+.loan_request_hero{
+    background-image: url("../assets/images/moneyphoto-507875692-612x612.jpg");
+    background-size:cover;
+    background-position-y: -30vh;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav_bar{
+    width: 100%;
+    height: 3em;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.fullname{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.home_link{
+    color:rgb(139, 250, 167);
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.loan_request_form{
+    width: 30%;
+    margin-left: 35%;
+    position: absolute;
+    top: 10%;
+    display: flex;
+    flex-direction:column;
+    background-color: white;
+    box-shadow: 1px 1px 12px 4px rgb(46, 46, 46);
+    padding: 1em;
+}
+

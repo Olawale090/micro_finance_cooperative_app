@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loan request</title>
+    <link rel="stylesheet" href="../styles/app.css">
+    <link rel="stylesheet" href="../styles/register.css">
+    <link rel="stylesheet" href="../styles/loan_request.css">
+</head>
+
+<body>
+    <section class="hero loan_request_hero">
+        <div class="nav_bar">
+            <img src="../assets/images/9375592_avatars_accounts_man_male_people_icon.png" alt="user_avatar">
+            <li class="fullname">full name</li>
+            <li class="fullname">
+                <a class="home_link" href="../dir/dashboard.html">dashboard</a>
+            </li>
+        </div>
+    </section>
+    
+    <form action="" class="loan_request_form form">
+
+        <label for="title" class="form_title">my cooperative</label>
+
+        <label for="fullname" class="label fullname_lb">Fullname</label>
+        <input type="text" name="" id="" class="input fullname_inp" placeholder="Please enter fullname">
+
+        <div class="account_section">
+
+            <div class="account_name_section">
+                <label for="account_name" class="label account_lb">Account number</label>
+                <input type="text" name="" id="" class="input account_inp" placeholder="Please enter account name">
+            </div>
+
+            <div class="account_name_section">
+                <label for="bvn" class="label bvn_lb">BVN</label>
+                <input type="text" name="" id="" class="input bvn_inp" placeholder="Please enter BVN">
+            </div>
+            
+
+        </div>
+        
+        <label for="bank_name" class="label bank_name"> Amount request </label>
+        <input type="bank_name" name="" id="" class="input bank_inp" placeholder="Please enter bank">
+        
+        <div class="access_section">
+
+            <div class="bank_name_section">
+                <label for="bvn" class="label bvn_lb">Bank</label>
+                <input type="text" name="" id="" class="input bvn_inp" placeholder="Please enter BVN">
+            </div>
+
+            <div class="user_dob">
+
+                <label for="dob" class="label dob">Loan duration</label>
+                <select class="input dob_inp" name="loan duration" id="">
+                    <option value="30">30 days</option>
+                    <option value="60">60 days</option>
+                    <option value="90">90 days</option>
+                </select>
+
+            </div>
+
+        </div>
+        
+        <button type="submit" class="btn submit_btn">Get loan</button>
+        <footer class="message">message</footer>
+
+    </form>
+</body>
+</html>
