@@ -6,20 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/loader.css">
+    <script async type="module" src="script/login.js"></script>
 </head>
 <body>
     <section class="hero login_hero"></section>
     <form action="" class="login form">
         <label for="title" class="form_title">my cooperative</label>
+
         <label for="bvn" class="label bvn_lb">BVN</label>
-        <input type="text" name="" id="" class="input bvn_inp" placeholder="Please enter BVN">
+        <input type="text" name="bvn" id="" class="input bvn_inp" placeholder="Please enter BVN">
+
         <label for="password" class="label password">Password</label>
-        <input type="password" name="" id="" class="input password_inp" placeholder="Please enter password">
+        <input type="password" name="password" id="" class="input password_inp" placeholder="Please enter password">
+        
         <button type="submit" class="btn submit_btn">Submit</button>
         <label for="redirect" class="label register">
             <a href="dir/register.html"> Create account </a>
         </label>
-        <footer class="message">message</footer>
+
+        <footer class="message">
+            <div class="message_text">message</div>
+            <div class="form_loader login_loader"></div>
+        </footer>
     </form>
 </body>
 </html>

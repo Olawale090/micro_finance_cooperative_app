@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>loan request</title>
+    <title>Withdrawal</title>
     <link rel="stylesheet" href="../styles/app.css">
     <link rel="stylesheet" href="../styles/register.css">
     <link rel="stylesheet" href="../styles/loan_request.css">
     <link rel="stylesheet" href="../styles/modal.css">
     <link rel="stylesheet" href="../styles/loader.css">
-    <script src="../script/loan_request.js" async></script>
+    <link rel="stylesheet" href="../styles/loan_repayment.css">
+    <script async type="module" src="../script/withdrawal.js"></script>
 </head>
 
 <body>
     <section class="hero loan_request_hero">
         <div class="nav_bar">
             <img src="../assets/images/9375592_avatars_accounts_man_male_people_icon.png" alt="user_avatar">
-            <li class="fullname">full name</li>
+            <li class="fullname user_fullname"></li>
             <li class="fullname">
                 <a class="home_link" href="../dir/dashboard.html">dashboard</a>
             </li>
@@ -27,20 +28,21 @@
     <form action="" class="loan_request_form form">
 
         <label for="title" class="form_title">my cooperative</label>
-        
-        <label for="bank_name" class="label bank_name"> Amount request </label>
-        <input type="bank_name" name="loan_amount" id="" class="input amount_inp" placeholder="Please enter bank">
 
-        <label for="dob" class="label dob">Loan duration</label>
-        <select class="input duration_inp" name="loan_duration" id="">
-            <option value="30">30 days</option>
-            <option value="60">60 days</option>
-            <option value="90">90 days</option>
-        </select>
+        <div class="amount_deposited">
+            <div class="minor_deposit">Account balance</div>
+            <div class="amount_deposit">&#8358; 2323243.00</div>
+        </div>
+
+
+        <label for="withdrawal_amount" class="label withdrawal_amount_label">Amount</label>
+        <input type="text" name="" id="withdrawal_amount" class="input withdrawal_amount_inp" placeholder="Please enter withdrawal amount">
         
-        <button type="submit" class="btn submit_btn">Get loan</button>
-        <footer class="message">
-            <div class="message_text"> message</div>
+        <label for="withdrawal_acount" class="label withdrawal_account_label">Account number</label>
+        <input type="text" name="account_number" id="" class="input withdrawal_account_inp" placeholder="Please enter withdrawal account number">
+        
+        <button type="submit" class="btn submit_btn">Withdrawal</button>
+        <footer class="message">message
             <div class="form_loader loan_request_loader"></div>
         </footer>
 

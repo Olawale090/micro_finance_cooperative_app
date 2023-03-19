@@ -10,13 +10,18 @@
     <link rel="stylesheet" href="../styles/loan_request.css">
     <link rel="stylesheet" href="../styles/payment_history.css">
     <link rel="stylesheet" href="../styles/loan_repayment.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="../styles/loader.css">
+
+    <script async type="module" src="../script/loanPayment.js"></script>
 </head>
+
 <body>
     <section class="hero loan_repayment_hero">
         <div class="comp_name">my cooperative</div>
         <div class="nav_bar">
             <img src="../assets/images/9375592_avatars_accounts_man_male_people_icon.png" alt="user_avatar">
-            <li class="fullname">full name</li>
+            <li class="fullname user_fullname">full name</li>
             <li class="fullname">
                 <a class="home_link" href="../dir/dashboard.html">dashboard</a>
             </li>
@@ -29,16 +34,29 @@
         </div>
 
         <div class="amount_deposited">
-            <div class="minor_deposit">Amount deposited</div>
-            <div class="amount_deposit">&#8358; 2323243.00</div>
+            <div class="minor_deposit">Account balance</div>
+            <div class="amount_deposit"></div>
         </div>
 
         <div class="amount_default">
             <div class="minor_defualt">Amount owed</div>
-            <div class="amount_owed">&#8358; 32323232.00</div>
+            <div class="amount_owed"></div>
         </div>
-        <div class="message">message</div>
-        <button class="btn deposit_btn" type="submit">Deposit</button>
+        
+        <button class="btn deposit_btn payment_button" type="submit">Pay loan</button>
+
+        <div class="message">
+            <div class="message_text"> </div>
+            <div class="form_loader repayment_loader"></div>
+        </div>
     </div>
+
+    <div class="notifier_wall">
+        <div class="notifier">
+            <div class="top_bar">my Cooperative</div>
+            <div class="notifier_message"></div>
+        </div>
+    </div>
+
 </body>
 </html>

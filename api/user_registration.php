@@ -1,6 +1,8 @@
 <?php 
     include "config_enum.php";
-
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
+    error_reporting(E_ALL);
     session_start();
 
     interface Iregistration{
@@ -39,33 +41,31 @@
             $account_number = strip_tags($this->account_number);
             $bank = strip_tags($this->bank);
             $bvn = strip_tags($this->bvn);
-            $password = strip_tags($this->password);
             $dob = strip_tags($this->dob);
 
-
-            if(!empty($fullname) && !empty($account_number) && !empty($bank) && !empty($bvn) && !empty($password) && !empty($dob)){
+            if( !empty($fullname) && !empty($account_number) && !empty($bank) && !empty($bvn) && !empty($this->password) && !empty($dob)){
 
                 $query = "SELECT * FROM user_registration 
                           WHERE bvn = '$bvn';
                           ";
 
                 $passed_query = mysqli_query($this->host,$query,MYSQLI_USE_RESULT);
-                $data = $passed_query->fetch_array();
+                $data = $passed_query->fetch_assoc();
 
-                if($data){
+                if(!is_null($data["fullname"])){
                     echo json_encode([
-                        "success"=>true,
-                        "data"=>[
-                            "message"=>"User account already exist",
-                            "status"=>200
-                        ]
+                        "success"=>false,
+                        "error"=>[
+                            "message"=>"User account already exist"
+                        ],
+                        "status"=>200
                     ]);
 
                 }
                 
                 if(is_null($data)){
 
-                    $add_user_query = "INSERT INTO user_registration(fullname,account_number,bank_name,bvn,password,dob) 
+                    $add_user_query = "INSERT INTO user_registration (fullname,account_number,bank_name,bvn,password,dob) 
                                VALUES('$fullname','$account_number','$bank','$bvn','$password','$dob')";
 
                     $pass_user_query = mysqli_query($this->host,$add_user_query,MYSQLI_USE_RESULT);
@@ -74,17 +74,17 @@
                         echo json_encode([
                             "success"=>true,
                             "data"=>[
-                                "message"=>"Registration successful",
-                                "status"=>200
-                            ]
+                                "message"=>"Registration successful"
+                            ],
+                            "status"=>200
                         ]);
                     }else{
                         echo json_encode([
                             "success"=>false,
                             "error"=>[
-                                "message"=>"Registration failed, please try again",
-                                "status"=>400
-                            ]
+                                "message"=>"Registration failed, please try again"
+                            ],
+                            "status"=>00
                         ]);
                     }
                 }
@@ -92,9 +92,9 @@
                 echo json_encode([
                     "success"=>false,
                     "error"=>[
-                        "message"=>"Please fill the empty field(s)",
-                        "status"=>200
-                    ]
+                        "message"=>"Please fill the empty field(s)"
+                    ],
+                    "status"=>200
                 ]);
             }
                 

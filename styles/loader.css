@@ -1,0 +1,19 @@
+.form_loader{
+        width: 2em;
+        height: 2em;
+        border: solid rgb(167, 69, 247) 2px;
+        animation-name: form_loader;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+}
+
+@keyframes form_loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}

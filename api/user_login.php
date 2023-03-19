@@ -28,7 +28,7 @@
             $bvn = strip_tags($this->bvn);
             $password = md5(strip_tags($this->password));
 
-            if(!empty($bvn) && !empty($password)){
+            if(!empty($bvn) && !empty($this->password)){
 
                 $query = "SELECT * FROM user_registration 
                           WHERE bvn = '$bvn' AND password = '$password';
@@ -49,30 +49,33 @@
                     echo json_encode([
                         "success"=>true,
                         "data"=>[
-                            "message"=>"Login successful",
-                            "status"=>200
-                        ]
+                            "message"=>"Login successful"
+                        ],
+                        "status"=>200
                     ]);
 
                 }
                 
                 if(is_null($data)){
-                    
                     echo json_encode([
+                        "success"=>false,
                         "data"=>[
-                            "message"=>"Account does not exist, please register.",
-                            "status"=>200
-                        ]
+                            "message"=>"Account does not exist, please register."
+                        ],
+                        "status"=>200
                     ]);
             
                 }
 
-            }else{
+            }
+            
+            if(empty($bvn) || empty($password)){
                 echo json_encode([
+                    "success"=>false,
                     "data"=>[
-                        "message"=>"Please fill the empty field(s)",
-                        "status"=>200
-                    ]
+                        "message"=>"Please fill the empty field(s)"
+                    ],
+                    "status"=>200
                 ]);
             }
                 

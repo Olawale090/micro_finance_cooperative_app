@@ -9,8 +9,13 @@
     <link rel="stylesheet" href="../styles/register.css">
     <link rel="stylesheet" href="../styles/loan_request.css">
     <link rel="stylesheet" href="../styles/deposit.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="../styles/loader.css">
+
+    <script src="../script/deposit.js" async type="module"></script>
 </head>
 <body>
+
     <section class="hero deposit_hero">
         <div class="nav_bar">
             <img src="../assets/images/9375592_avatars_accounts_man_male_people_icon.png" alt="user_avatar">
@@ -20,45 +25,28 @@
             </li>
         </div>
     </section>
+
     <form action="" class="deposit_form form">
 
-        <label for="title" class="form_title">my cooperative</label>
-
-        <div class="account_section">
-
-            <div class="account_name_section">
-                <label for="account_name" class="label account_lb">Account name</label>
-                <input type="text" name="" id="" class="input account_inp" placeholder="Please enter account name">
-            </div>
-            
-            <div class="bank_name_section">
-                <label for="bank_name" class="label bank_name"> Bank </label>
-                <input type="bank_name" name="" id="" class="input bank_inp" placeholder="Please enter bank">
-            </div>
-
-        </div>
-
-
-        <div class="account_section">
-
-            <div class="account_name_section">
-                <label for="bvn" class="label account_no_lb">Account number</label>
-                <input type="text" name="" id="" class="input account_no_inp" placeholder="Please enter Account number">
-            </div>
-            
-            <div class="bank_name_section">
-                <label for="bvn" class="label bvn_lb">BVN</label>
-                <input type="text" name="" id="" class="input amount_inp" placeholder="Bank Verification Number">
-            </div>
-
-        </div>
-
         <label for="bvn" class="label bvn_lb">Amount</label>
-        <input type="text" name="" id="" class="input amount_inp" placeholder="Please enter Amount">
+        <input type="text" name="amount" id="" class="input amount_inp" placeholder="Please enter Amount">
         
         <button type="submit" class="btn submit_btn">Deposit</button>
-        <footer class="message">message</footer>
+
+        <footer class="message"> 
+            <div class="message_text"> message </div>
+            <div class="form_loader deposit_loader"></div>
+        </footer>
 
     </form>
+
+
+    <div class="notifier_wall">
+        <div class="notifier">
+            <div class="top_bar"></div>
+        </div>
+    </div>
+
+
 </body>
 </html>

@@ -1,7 +1,10 @@
 <?php
 
     include "config_enum.php";
-
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
+    error_reporting(E_ALL);
+    
     session_start();
 
     interface cache{
@@ -44,8 +47,7 @@
                         "account_number"=>$this->user_account_number,
                         "bank"=>$this->user_bank,
                         "dob"=>$this->user_dob,
-                        "initial_balance"=>$this->initial_balance,
-                        "total_savings"=>$this->deposit
+                        "initial_balance"=>$this->initial_balance
                     ],
                     "status"=>200
                 ]);

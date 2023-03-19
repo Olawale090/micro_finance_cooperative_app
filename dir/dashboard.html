@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../styles/payment_history.css">
     <link rel="stylesheet" href="../styles/loan_repayment.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
+
+    <script async type="module" src="../script/app.js" ></script>
+    <script async type="module" src="../script/dashboard.js"></script>
 </head>
 <body>
     <section class="hero dashboard_hero">
@@ -28,27 +31,39 @@
                     <a class="payment_link" href="payment_history.html">Payment history</a>
                 </button>
 
+                <button class="withdrawal">
+                    <a class="withdrawal_link" href="withdrawal.html">Withdrawal</a>
+                </button>
+
             </div>
         </div>
 
         <div class="data_board">
             <div class="amount_saved_column">
                 <div class="board_title">
-                    Amount saved
+                    Account balance
                 </div>
     
-                <div class="board_amount">
-                    &#8358;323234234
+                <div class="board_amount account_balance">
+                    
                 </div>
             </div>
 
             <div class="outstanding_payment_column">
-                <div class="board_title">
-                    Outstanding amount
+                <div class="board_title amount_owed_title">
+                    Amount owed
                 </div>
     
-                <div class="board_amount">
-                    &#8358;323234234
+                <div class="board_amount amount_owed">
+                    
+                </div>
+
+                <div class="payment_deadline_title">
+                    Payment deadline
+                </div>
+
+                <div class="board_amount payment_deadline">
+                    payment deadline
                 </div>
             </div>
             
@@ -58,8 +73,8 @@
 
     <div class="activity_list">
         <list class="loan_activities">
-            <div class="loan_text_parent">
-                Account status: Not default/ Default
+            <div class="loan_text_parent account_status">
+                
             </div>
 
             <div class="user_actions_parent">
@@ -70,8 +85,8 @@
         </list>
 
         <list class="loan_activities">
-            <div class="loan_text_parent">
-                Loan status: Eligible/Not eligible
+            <div class="loan_text_parent loan_eligible">
+                
             </div>
 
             <div class="user_actions_parent">
@@ -83,7 +98,7 @@
 
         <list class="loan_activities">
             <div class="loan_text_parent">
-                <div class="loan_text">
+                <div class="loan_text maximum_loan">
                     Maximum eligible loan: Not available/&#8358;50,000.00
                 </div> 
             </div>
@@ -99,6 +114,11 @@
             loan offers with lower interest.
         </list>
 
+    </div>
+
+    <div class="loader_wall">
+        <div class="business_name">my cooperative</div>
+        <div class="loader"></div>
     </div>
     
 </body>

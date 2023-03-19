@@ -7,6 +7,8 @@
     <title>Register</title>
     <link rel="stylesheet" href="../styles/app.css">
     <link rel="stylesheet" href="../styles/register.css">
+    <link rel="stylesheet" href="../styles/loader.css">
+    <script async type="module" src="../script/signUp.js"></script>
 </head>
 <body>
     <section class="hero register_hero"></section>
@@ -49,6 +51,7 @@
         </div>
         
         <button type="submit" class="btn submit_btn">Submit</button>
+        
         <label for="redirect" class="label sign_in">
             <em>
                 Already have an account? 
@@ -56,7 +59,10 @@
             <a href="../index.html"> Sign in </a>
         </label>
 
-        <footer class="message">message</footer>
+        <footer class="message">
+            <div class="message_text"></div> 
+            <div class="form_loader register_loader"></div>
+        </footer>
     </form>
 </body>
 </html>

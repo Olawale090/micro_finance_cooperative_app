@@ -19,9 +19,25 @@
     padding: 1em;
 }
 
+.message{
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .home_link{
     color:rgb(139, 250, 167);
     font-weight: bold;
     margin-right: 1rem;
+}
+
+.message_box{
+    display: none;
+}
+
+.deposit_loader{
+    display: none;
 }
