@@ -54,7 +54,7 @@ withdrawal.prototype = {
             e.preventDefault();
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST','http://localhost/cooperative_app/api/withdrawal.php',true);
+            xhr.open('POST','http://localhost/cooperative_app/api/withdrawal.php',true); // this is the ideal way
             xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
             xhr.onloadstart = ()=>{

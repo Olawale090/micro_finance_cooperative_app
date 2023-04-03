@@ -9,6 +9,13 @@
     flex-direction: row;
 }
 
+@media screen and (max-width:450px) {
+    .loan_repayment_hero{
+        background-position-y: 0vh;
+    }
+    
+}
+
 .repayment_box{
     width: 35%;
     background-color: white;
@@ -17,6 +24,14 @@
     top: 15%;
     padding: 1rem;
     box-sizing: border-box;
+}
+
+
+@media screen and (max-width:450px){
+    .repayment_box{
+        width: 85%;
+        margin-left:5%;
+    }
 }
 
 .box_title{

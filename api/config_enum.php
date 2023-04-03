@@ -1,11 +1,19 @@
 <?php 
     
     enum server_config:string{
-        case host = "localhost";
-        case username = "root";
-        case password = "";
-        case db_name = "cooperative_app";
+        case host = "sql309.epizy.com";
+        case username = "epiz_33892097";
+        case password = "o73zshWSjR";
+        case db_name = "epiz_33892097_cooperative_app";
+        
     }
+
+    // enum server_config:string{
+    //     case host = "localhost";
+    //     case username = "root";
+    //     case password = "";
+    //     case db_name = "cooperative_app";
+    // }
 
     enum dashboard_config:int{
         case INITIAL_ACCOUNT_DEPOSIT = 0;

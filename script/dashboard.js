@@ -20,7 +20,7 @@ const user_dashboard = function (){
 user_dashboard.prototype = {
     loadUserData(){
         const xhr = new XMLHttpRequest();
-        xhr.open('GET','http://localhost/cooperative_app/api/dashboard.php',true);
+        xhr.open('GET','http://mycooperative.epizy.com/api/dashboard.php',true);
         xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
         xhr.onloadstart = ()=>{
@@ -35,8 +35,9 @@ user_dashboard.prototype = {
 
             if(xhr.status === 200){
                 let response = JSON.parse(xhr.responseText);
+
                 if(response.data.fullname === undefined || response.data.fullname === null){
-                    window.open("http://localhost/cooperative_app","_self");
+                    window.open("http://mycooperative.epizy.com/","_self");
                 }
 
                 if(response.success === true){
@@ -79,4 +80,38 @@ user_dashboard.prototype = {
 
 const dashboard = new user_dashboard();
 dashboard.loadUserData();
+
+
+const log_out = function (){
+    this.log_out_button = document.querySelector(".log_out");
+}
+
+log_out.prototype = {
+    terminate_signin(){
+        this.log_out_button.addEventListener('click',(e)=>{
+            e.preventDefault();
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET','http://mycooperative.epizy.com/cooperative_app/api/log_out.php',true);
+            xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+
+           xhr.onload= ()=>{
+            if(xhr.status === 200){
+                let response = JSON.parse(xhr.responseText);
+                console.warn(response);
+                if(response.success === true){
+                    window.open("http://mycooperative.epizy.com/","_self");
+                }
+                
+            }
+           }
+
+           xhr.send();
+        })
+    }
+};
+
+let log_terminator = new log_out();
+log_terminator.terminate_signin();
+
+
 

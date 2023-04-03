@@ -7,6 +7,12 @@
     opacity: 0.8;;
 }
 
+@media screen and (max-width:450px) {
+    .deposit_hero{
+        background-position-y: 0vh;
+    }
+}
+
 .deposit_form{
     width: 30%;
     margin-left: 35%;
@@ -17,6 +23,13 @@
     background-color: white;
     box-shadow: 1px 1px 12px 4px rgb(46, 46, 46);
     padding: 1em;
+}
+
+@media screen and (max-width:450px) {
+    .deposit_form{
+        width: 80%;
+        left:-30%;
+    }
 }
 
 .message{

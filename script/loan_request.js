@@ -8,15 +8,48 @@ const userLoanRequest = function (){
     this.messageBox = document.querySelector(".message");
     this.messageText = document.querySelector(".message_text");
     this.loader = document.querySelector(".loan_request_loader");
+
+    this.username = document.querySelector(".username");
 }
 
 userLoanRequest.prototype = {
+
+    userData(){
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET','http://mycooperative.epizy.com/api/dao.php',true);
+        xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+
+        xhr.onload = ()=>{
+
+            if(xhr.status === 200){
+                let response = JSON.parse(xhr.responseText);
+
+                if(response.success === true){
+
+                    this.username.textContent = response.data.fullname;
+
+                }
+
+                if(response.success === false){
+                    this.notifier.style.display = "flex";
+                }
+                
+            }
+            
+        }
+
+        xhr.send();
+
+    },
+
+
     getLoan(){
         this.submitBtn.addEventListener("click",(e)=>{
             e.preventDefault();
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST',`../api/loan_request.php`,true);
+            xhr.open('POST',`http://mycooperative.epizy.com/api/loan_request.php`,true);
             xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
             let params = `loan_amount=${this.amount.value}&loan_duration=${this.duration.value}`;
@@ -39,7 +72,7 @@ userLoanRequest.prototype = {
                     if (response.success === true) {
                         this.messageText.innerHTML = response.data.message;
                         this.messageText.style.color = "#50eb7f";
-                        window.open("http://localhost/cooperative_app/dir/dashboard.html","_self")
+                        window.open("http://mycooperative.epizy.com/dir/dashboard.html","_self")
                     }
 
                     if(response.success === false){
@@ -58,5 +91,6 @@ userLoanRequest.prototype = {
 };
 
 const loanRequest = new userLoanRequest();
+loanRequest.userData()
 loanRequest.getLoan();
 

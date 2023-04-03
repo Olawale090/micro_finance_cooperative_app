@@ -40,7 +40,14 @@
     font-weight: bold;
 }
 
-.withdrawal{
+@media screen and (max-width:480px) {
+    .img_icon{
+        display: none;
+    }
+
+}
+
+.log_out{
     background-color:white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: none;
@@ -48,15 +55,12 @@
     height: 2.5em;
     margin-right: 0.5em;
     font-weight: bolder;
+    color: #8866EF;
 }
 
 
 .deposit_link{
     color: white;
-}
-
-.withdrawal_link{
-    color: #8866EF;
 }
 
 .payment_link{
@@ -100,6 +104,12 @@
     display: flex;
 }
 
+@media screen and (max-width:480px) {
+    .data_board{
+        height: 80%;
+    }
+}
+
 .board_title{
     color: #50eb7f;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -130,6 +140,13 @@
     margin-left: 11.5em;
     color: rgb(255, 255, 255);
     text-align: right;
+}
+
+@media screen and (max-width:480px) {
+    .payment_deadline_title{
+        width: 80%;
+        margin-left: 3em;
+    }
 }
 
 .payment_deadline{
@@ -201,7 +218,6 @@
     margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
-    /* background-color: #8866EF; */
     background-image:url("../assets/images/undraw_credit_card_re_blml.svg");
     background-position: -50px -90px;
     background-size: cover;
@@ -212,6 +228,7 @@
     .activity_list{
         width: 100%;
         margin-left: 0;
+        background-image: none;
     }
 }
 
@@ -232,10 +249,13 @@
 @media screen and (max-width:480px) {
     .loan_activities{
         height: auto;
-        width: 100%;
+        width: 90%;
         padding:0.5rem;
         box-sizing: border-box;
-        margin-left: 0;
+        margin-left: 5%;
+        background-color: rgb(233, 233, 233);
+        color: black;
+        font-weight: bolder;
     }
 }
 
@@ -275,6 +295,13 @@
     width: 8em;
 }
 
+@media screen and (max-width:480px){
+    .pay_loan_btn{
+        margin-top: auto;
+        height: 2.5em;
+    }
+}
+
 
 .get_loan_btn{
     background-color: #8866EF;
@@ -283,6 +310,12 @@
     font-weight: bold;
     color: white;
     align-items: right;
+}
+
+@media screen and (max-width:480px){
+    .get_loan_btn{
+        height: 2.5em;
+    }
 }
 
 .pay_loan_link{

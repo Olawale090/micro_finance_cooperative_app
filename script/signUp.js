@@ -18,12 +18,12 @@ user_register.prototype = {
         this.submitBtn.addEventListener("click",(e)=>{
             e.preventDefault();
 
-            console.log(this.fullname.value);
-            console.log(this.account_number.value);
-            console.log(this.bank.value);
-            console.log(this.bvn.value);
-            console.log(this.password.value);
-            console.log(this.dob.value);
+            // console.log(this.fullname.value);
+            // console.log(this.account_number.value);
+            // console.log(this.bank.value);
+            // console.log(this.bvn.value);
+            // console.log(this.password.value);
+            // console.log(this.dob.value);
 
             let form = {
                 fullname:this.fullname.value,
@@ -37,7 +37,7 @@ user_register.prototype = {
             console.log(form);
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST',`../api/user_registration.php`,true);
+            xhr.open('POST',`http://mycooperative.epizy.com/api/user_registration.php`,true);
             xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
             let params = `fullname=${this.fullname.value}&account_number=${this.account_number.value}&bank=${this.bank.value}&bvn=${this.bvn.value}&password=${this.password.value}&dob=${this.dob.value}`;
@@ -60,7 +60,7 @@ user_register.prototype = {
                     if (response.success === true) {
                         this.messageText.innerHTML = response.data.message;
                         this.messageText.style.color = "#50eb7f";
-                        window.open("http://localhost/cooperative_app/","_self")
+                        window.open("http://mycooperative.epizy.com/","_self")
                     }
 
                     if(response.success === false){
