@@ -1,7 +1,6 @@
 <?php 
-    // include "config_enum.php";
+
     include "dto.php";
-    // session_start();
 
     interface Ipayments{
         public function payment_props();

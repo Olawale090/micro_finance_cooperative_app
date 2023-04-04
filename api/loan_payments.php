@@ -1,9 +1,7 @@
 <?php 
 
     include "dto.php";
-    ini_set('display_errors', 0);
-    ini_set('display_startup_errors', 0);
-    error_reporting(E_ALL);
+    
     interface Iloan_payment{
         public function loan_payment_props();
         public function database_connection();

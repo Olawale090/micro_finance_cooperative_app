@@ -42,6 +42,14 @@ a{
     height: 35em;
 }
 
+@media screen and (max-width:450px) {
+    .login_hero{
+        background-position-y: -5vh;
+        background-position-x: -10vh;
+        background-repeat: repeat;
+    }
+}
+
 .login{
     width: 30%;
     margin-left: 35%;
