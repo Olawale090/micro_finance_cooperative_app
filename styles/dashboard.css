@@ -142,15 +142,23 @@
     text-align: right;
 }
 
-@media screen and (max-width:480px) {
-    .payment_deadline_title{
-        width: 80%;
-        margin-left: 3em;
-    }
-}
-
 .payment_deadline{
     font-size: 1rem;
+}
+
+@media screen and (max-width:480px) {
+    .payment_deadline_title{
+        width: 65%;
+        padding: 0.3rem;
+        margin-top: 0.5rem;
+        margin-left: 6em;
+        text-align:center
+    }
+
+    .payment_deadline{
+        font-size: 0.7rem;
+        margin-top: -0.2rem;
+    }
 }
 
 .amount_saved_column{
@@ -176,6 +184,20 @@
 .outstanding_payment_column > .board_title{
     color: red;
     text-align: right;
+}
+
+@media screen and (max-width:480px) {
+    .outstanding_payment_column > .board_title{
+        color: red;
+        text-align: right;
+        width: fit-content;
+        margin-left: 6.5rem;
+    }
+
+    .outstanding_payment_column > .board_amount{
+        text-align: right;
+        margin-top: -0.2rem;
+    }
 }
 
 .outstanding_payment_column > .board_amount{

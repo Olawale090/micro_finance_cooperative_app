@@ -107,6 +107,7 @@
                         if($save_payment){
     
                             $loan_paid = loan_payment_status::LOAN_PAID->value;
+
                             $query = "  UPDATE get_loan 
                                         SET account_status = '$account_status',
                                             loan_payment_status = '$loan_paid',
@@ -123,6 +124,7 @@
                                 $proc_manager_query = mysqli_query($this->host,$account_manager_query,MYSQLI_USE_RESULT);
                                 $manager_data = $proc_manager_query->fetch_assoc();
                                 $owe_loan = user_acccount_status::CUSTOMER_OWING->value;
+                                
                                 mysqli_free_result($proc_manager_query);
 
                                 if(is_null($manager_data["account_name"])){

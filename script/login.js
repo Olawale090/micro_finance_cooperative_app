@@ -15,8 +15,10 @@ user_login.prototype = {
             e.preventDefault();
 
             const xhr = new XMLHttpRequest();
-            xhr.open('GET',`http://mycooperative.epizy.com/api/user_login.php?bvn=${this.bvn.value}&password=${this.password.value}`,true);
+            xhr.open('GET',`./api/user_login.php?bvn=${this.bvn.value}&password=${this.password.value}`,true);
             xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+            
+            // let params = `?bvn=${this.bvn.value}&password=${this.password.value}`;
 
             xhr.onloadstart = ()=>{
                 this.messageBox.style.display = "flex"
@@ -37,14 +39,13 @@ user_login.prototype = {
                         this.messageText.innerHTML = response.data.message;
                         this.messageText.style.color = "#50eb7f";
  
-                        window.open("http://mycooperative.epizy.com/dir/dashboard.html","_self")
+                        window.open("./dir/dashboard.php","_self")
                     }
 
                     if(response.success === false){
                         this.messageText.innerHTML = response.data.message;
                     }
                     
-                    console.log(response);
                 }
                 
             }

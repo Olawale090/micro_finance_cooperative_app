@@ -19,13 +19,14 @@ const loanPayment = function (){
 loanPayment.prototype = {
     loadUserAccountData(){
         const xhr = new XMLHttpRequest();
-        xhr.open('GET','http://mycooperative.epizy.com/api/dao.php',true); //http://localhost/cooperative_app
+        xhr.open('GET','../api/dao.php',true);
         xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
         xhr.onload = ()=>{
 
             if(xhr.status === 200){
                 let response = JSON.parse(xhr.responseText);
+
                 console.log(response);
 
                 if(response.success === true){
@@ -36,8 +37,14 @@ loanPayment.prototype = {
                         this.userAmountOwed.innerHTML = "&#8358;" + response.data.amount_owed + ".00";
                     }
 
-                    if(response.data.account_status === "NOT DEFAULT"){
+                    if(response.data.account_status === "NOT DEFAULT" && response.data.first_loan_record !== undefined){
                         this.userFullname.textContent = response.data.fullname;
+                        this.userAmountSaved.innerHTML = "&#8358;" + response.data.amount_saved + ".00";
+                        this.userAmountOwed.innerHTML = "&#8358;" + response.data.amount_owed + ".00";
+                    }
+
+                    if(response.data.account_status === "NOT DEFAULT" && response.data.first_loan_record === undefined){
+                        this.userFullname.innerHTML = response.data.fullname;
                         this.userAmountSaved.innerHTML = "&#8358;" + response.data.amount_saved + ".00";
                         this.userAmountOwed.innerHTML = "&#8358;" + 0+ ".00";
                     }
@@ -62,7 +69,7 @@ loanPayment.prototype = {
             e.preventDefault();
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST','http://mycooperative.epizy.com/api/loan_payments.php',true);
+            xhr.open('POST','../api/loan_payments.php',true);
             xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
             xhr.onloadstart = ()=>{
@@ -84,7 +91,7 @@ loanPayment.prototype = {
                     if(response.success === true){
                         this.messageText.innerHTML = response.data.message;
                         this.messageText.style.color = "#50eb7f";
-                        window.open("http://mycooperative.epizy.com/dir/dashboard.html","_self");
+                        window.open("../dir/dashboard.php","_self");
 
                     }
 

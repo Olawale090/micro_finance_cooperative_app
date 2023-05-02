@@ -17,7 +17,7 @@ userLoanRequest.prototype = {
     userData(){
 
         const xhr = new XMLHttpRequest();
-        xhr.open('GET','http://mycooperative.epizy.com/api/dao.php',true);
+        xhr.open('GET','../api/dao.php',true);
         xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
         xhr.onload = ()=>{
@@ -49,7 +49,7 @@ userLoanRequest.prototype = {
             e.preventDefault();
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST',`http://mycooperative.epizy.com/api/loan_request.php`,true);
+            xhr.open('POST','../api/loan_request.php',true);
             xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
             let params = `loan_amount=${this.amount.value}&loan_duration=${this.duration.value}`;
@@ -72,7 +72,7 @@ userLoanRequest.prototype = {
                     if (response.success === true) {
                         this.messageText.innerHTML = response.data.message;
                         this.messageText.style.color = "#50eb7f";
-                        window.open("http://mycooperative.epizy.com/dir/dashboard.html","_self")
+                        window.open("../dir/dashboard.php","_self")
                     }
 
                     if(response.success === false){

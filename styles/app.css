@@ -42,7 +42,7 @@ a{
     height: 35em;
 }
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:480px) {
     .login_hero{
         background-position-y: -5vh;
         background-position-x: -10vh;
@@ -62,7 +62,7 @@ a{
     padding: 1em;
 }
 
-@media screen and (max-width:450px){
+@media screen and (max-width:480px){
     .login{
         width: 80%;
         top:10%;

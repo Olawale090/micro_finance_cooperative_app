@@ -1,5 +1,5 @@
 <?php 
-    // include "config_enum.php";
+
     include "dto.php";
 
     interface Ideposit{
@@ -79,6 +79,19 @@
                                 "status"=>200
                             ]);
                         }
+                    }
+
+                    if(is_null($data["current_savings"])){
+                        if(!is_null($this->user_bvn)){
+                            echo json_encode([
+                                "success"=>true,
+                                "data"=>[
+                                    "message"=>"Deposit successful"
+                                ],
+                                "status"=>200
+                            ]);
+                        }
+
                     }
 
                 }else{

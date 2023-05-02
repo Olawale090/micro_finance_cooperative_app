@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment history</title>
+    <link rel="icon" href="../assets/images/cooperative_icon.png" sizes="16x16">
     <link rel="stylesheet" href="../styles/app.css">
     <link rel="stylesheet" href="../styles/payment_history.css">
     <link rel="stylesheet" href="../styles/modal.css">
@@ -17,7 +18,7 @@
             <img src="../assets/images/9375592_avatars_accounts_man_male_people_icon.png" alt="user_avatar">
             <li class="fullname fullname_holder">full name</li>
             <li class="dashboard">
-              <a class="home_link" href="../dir/dashboard.html">dashboard</a>
+              <a class="home_link" href="./dashboard.php">dashboard</a>
             </li>
         </div>
     </section>

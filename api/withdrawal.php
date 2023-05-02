@@ -11,7 +11,8 @@
     class withdrawal extends user_cache implements Iwithdrawal {
 
         public function withdrawal_props(){
-            $this->host = new mysqli(server_config::host->value,server_config::username->value,server_config::password->value,server_config::db_name->value);
+            $this->host= new mysqli("sql309.epizy.com","epiz_33892097","o73zshWSjR","epiz_33892097_cooperative_app");
+            // $this->host = new mysqli(server_config::host->value,server_config::username->value,server_config::password->value,server_config::db_name->value);
             $this->amount = mysqli_real_escape_string($this->host,$_POST["amount"]);
             $this->account_number = mysqli_real_escape_string($this->host,$_POST["account_number"]);
             user_cache::props();

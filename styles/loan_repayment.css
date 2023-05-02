@@ -9,7 +9,7 @@
     flex-direction: row;
 }
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:480px) {
     .loan_repayment_hero{
         background-position-y: 0vh;
     }
@@ -27,7 +27,7 @@
 }
 
 
-@media screen and (max-width:450px){
+@media screen and (max-width:480px){
     .repayment_box{
         width: 85%;
         margin-left:5%;
@@ -89,6 +89,13 @@
     text-align: center;
     padding: 0.2rem;
     box-sizing: border-box;
+}
+
+@media screen and (max-width:480px){
+    .amount_deposit,.amount_owed{
+        font-size: 2rem;
+        padding: 0.2rem;
+    }
 }
 
 .message{

@@ -43,13 +43,55 @@
             mysqli_free_result($user_account_manager_proc);
 
             if(is_null($user_account_manager_data["account_name"])){
-                echo json_encode([
-                    "success"=>false,
-                    "error"=> [
-                        "message"=>"User deposit and loan record not found"
-                    ],
-                    "status"=>200
-                ]);
+
+                $query = "SELECT account_name AS name,
+                        account_number AS account,
+                        SUM(amount) AS total_deposit,
+                        (SELECT amount FROM user_deposit WHERE bvn = '$bvn' ORDER BY id DESC LIMIT 1) AS last_deposit,
+                        (SELECT outstanding_loan_amount FROM get_loan WHERE bvn = '$bvn' AND account_status = 'DEFAULT') AS outstanding_loan_amount
+                        FROM cooperative_app.user_deposit
+                        WHERE bvn = '$bvn';
+                     ";
+
+                $pass_query = mysqli_query($this->host,$query,MYSQLI_USE_RESULT);
+                $new_user_deposit = $pass_query->fetch_assoc();
+    
+                mysqli_free_result($pass_query);
+
+                if(is_null($new_user_deposit["total_deposit"])){
+
+                    echo json_encode([
+                        "success"=>true,
+                        "data"=> [
+                            "fullname"=>$this->user_name
+                        ],
+                        "error"=> [
+                            "message"=>"User deposit and loan record not found"
+                        ],
+                        "status"=>200
+                    ]);
+                                    
+                }
+
+                if(!is_null($new_user_deposit["total_deposit"])){
+
+
+                    echo json_encode([
+                        "success"=>true,
+                        "data"=> [
+                            "fullname"=>$this->user_name,
+                            "amount_saved"=>$new_user_deposit["total_deposit"],
+                            "amount_owed"=>$new_user_deposit["outstanding_loan_amount"]==null?0:$new_user_deposit["outstanding_loan_amount"],
+                            "account_status"=>"NOT DEFAULT",
+                            "first_loan_record"=> true
+                        ],
+                        
+                        "message"=>"User deposit and loan record not found",
+                        "status"=>200
+                    ]);
+                }
+
+                
             }
 
             if(!is_null($user_account_manager_data["account_name"])){

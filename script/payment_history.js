@@ -12,7 +12,7 @@ paymentHistory.prototype = {
             e.preventDefault();
 
             const xhr = new XMLHttpRequest();
-            xhr.open('GET',`http://mycooperative.epizy.com/api/payment_history.php`,true);
+            xhr.open('GET',`../api/payment_history.php`,true);
             xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
             xhr.onload = ()=>{

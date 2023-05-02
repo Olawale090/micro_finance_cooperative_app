@@ -1,5 +1,17 @@
 <?php 
     include "config_enum.php";
+
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET,PUT,POST,DELETE,PATCH,OPTIONS");
+    header("Access-Control-Allow-Headers: *");
+    header("Access-Control-Allow-Headers: X-Requested-With");
+    header('Content-Type: application/json');
+    header('Access-Control-Max-Age: 1000');
+    header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
+
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
+    error_reporting(E_ALL);
     
     session_start();
 
@@ -9,7 +21,7 @@
         public function user_registration();
     }
 
-    class user_registration implements Iregistration{
+    class user_registration_form implements Iregistration{
         public function reg_props (){
             $this->host= new mysqli(server_config::host->value,server_config::username->value,server_config::password->value,server_config::db_name->value);
             $this->fullname = mysqli_real_escape_string($this->host,$_POST['fullname']);
@@ -40,6 +52,7 @@
             $bank = strip_tags($this->bank);
             $bvn = strip_tags($this->bvn);
             $dob = strip_tags($this->dob);
+            $password = $this->password;
 
             if( !empty($fullname) && !empty($account_number) && !empty($bank) && !empty($bvn) && !empty($this->password) && !empty($dob)){
 
@@ -100,7 +113,7 @@
         }
     }
 
-    $user_account = new user_registration();
+    $user_account = new user_registration_form();
     $user_account->reg_props();
     $user_account->database_connection();
     $user_account->user_registration();

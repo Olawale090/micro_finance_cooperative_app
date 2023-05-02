@@ -6,7 +6,7 @@ const user_deposit = function (){
     this.messageBox = document.querySelector(".message");
     this.messageText = document.querySelector(".message_text");
     this.loader = document.querySelector(".deposit_loader");
-
+    this.notifier = document.querySelector(".notifier_wall");
     this.userFullname = document.querySelector(".username");
 }
 
@@ -15,7 +15,7 @@ user_deposit.prototype = {
     user_data(){
 
         const xhr = new XMLHttpRequest();
-        xhr.open('GET','http://mycooperative.epizy.com/api/dao.php',true);
+        xhr.open('GET','../api/dao.php',true);
         xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
         xhr.onload = ()=>{
@@ -27,10 +27,6 @@ user_deposit.prototype = {
 
                     this.userFullname.textContent = response.data.fullname;
 
-                }
-
-                if(response.success === false){
-                    this.notifier.style.display = "flex";
                 }
                 
             }
@@ -46,7 +42,7 @@ user_deposit.prototype = {
             e.preventDefault();
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST',`http://mycooperative.epizy.com/api/deposit.php`,true);
+            xhr.open('POST',`../api/deposit.php`,true);
             xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
             let params = `amount=${this.amount.value}`;
@@ -64,12 +60,13 @@ user_deposit.prototype = {
 
             xhr.onload = ()=>{
                 if(xhr.status === 200){
+
                     let response = JSON.parse(xhr.responseText);
 
                     if (response.success === true) {
                         this.messageText.innerHTML = response.data.message;
                         this.messageText.style.color = "#50eb7f";
-                        window.open("http://mycooperative.epizy.com/dir/dashboard.html","_self")
+                        window.open("./dashboard.php","_self")
                     }
 
                     if(response.success === false){

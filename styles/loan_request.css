@@ -9,7 +9,7 @@
     flex-direction: row;
 }
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:480px) {
     .loan_request_hero{
         background-position-y: 0vh;
     }
@@ -48,7 +48,7 @@
     padding: 1em;
 }
 
-@media screen and (max-width:450px){
+@media screen and (max-width:480px){
     .loan_request_form{
         width: 80%;
         margin: 5%;

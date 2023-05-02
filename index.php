@@ -22,7 +22,7 @@
         
         <button type="submit" class="btn submit_btn">Submit</button>
         <label for="redirect" class="label register">
-            <a href="dir/register.html"> Create account </a>
+            <a href="dir/register.php"> Create account </a>
         </label>
 
         <footer class="message">

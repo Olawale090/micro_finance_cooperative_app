@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="icon" href="../assets/images/cooperative_icon.png" sizes="16x16">
     <link rel="stylesheet" href="../styles/app.css">
     <link rel="stylesheet" href="../styles/register.css">
     <link rel="stylesheet" href="../styles/loader.css">
@@ -56,7 +57,7 @@
             <em>
                 Already have an account? 
             </em> 
-            <a href="../index.html"> Sign in </a>
+            <a href="../index.php"> Sign in </a>
         </label>
 
         <footer class="message">

@@ -10,9 +10,9 @@
     header('Access-Control-Max-Age: 1000');
     header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
 
-    // ini_set('display_errors', 0);
-    // ini_set('display_startup_errors', 0);
-    // error_reporting(E_ALL);
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
+    error_reporting(E_ALL);
     
     session_start();
 
@@ -65,6 +65,5 @@
         }
        
     }
-    
 
 ?>

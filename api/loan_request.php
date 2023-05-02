@@ -10,6 +10,7 @@
 
     class user_loan_request extends user_cache implements Iloan{
         public function loan_req_props(){
+            
             $this->host = new mysqli(server_config::host->value,server_config::username->value,server_config::password->value,server_config::db_name->value);
             $this->loan_amount = mysqli_real_escape_string($this->host,$_POST["loan_amount"]);
             $this->loan_duration = mysqli_real_escape_string($this->host,$_POST["loan_duration"]);
@@ -61,8 +62,10 @@
                 mysqli_free_result($pass_query);
 
                 if($data["transaction_start_days"] >= 90){
-                    
-                    if($data["total_deposit"] >= loan_request_config::MIN_NET_DEPOSIT->value){
+
+                    $minimum_deposit = loan_request_config::MIN_NET_DEPOSIT->value;
+
+                    if($data["total_deposit"] >=  $minimum_deposit){
 
                         $query ="   SELECT SUM(outstanding_loan_amount) AS all_time_loans,
 
@@ -81,7 +84,6 @@
                                     FROM get_loan
                                     WHERE bvn = '$bvn';
 
-
                                 ";
 
                         $passer = mysqli_query($this->host,$query,MYSQLI_USE_RESULT);
@@ -91,19 +93,23 @@
 
                         if(!is_null($data["account_status"])){
 
-                            if($data["account_status"] == user_acccount_status::CUSTOMER_OWING->value){
+                            $customer_default = user_acccount_status::CUSTOMER_OWING->value;
+
+                            if($data["account_status"] == $customer_default){
                                 echo json_encode([
                                     "success"=>false,
                                     "error"=>[
                                         "message"=>"Please pay up your outstanding loan to get another one"
                                     ],
                                     "loan_status"=>loan_status::LOAN_FAILED,
+                                    "loan_status"=>"FAILED",
                                     "status"=>500
                                 ]);
                             }
 
+                            $customer_not_defualt = user_acccount_status::CUSTOMER_NOT_OWING->value;
 
-                            if($data["account_status"] == user_acccount_status::CUSTOMER_NOT_OWING->value){
+                            if($data["account_status"] == $customer_not_defualt){
 
                                 $username = $this->user_name;
                                 $bvn = $this->user_bvn;
@@ -213,7 +219,9 @@
 
                                     if(!is_null($new_user_data["total_deposit"])){
 
-                                            if($new_user_data["total_deposit"] >= loan_request_config::MIN_NET_DEPOSIT->value){
+                                        $minimum_deposit = loan_request_config::MIN_NET_DEPOSIT->value;
+
+                                            if($new_user_data["total_deposit"] >= $minimum_deposit){
 
                                                 $username = $this->user_name;
                                                 $bvn = $this->user_bvn;
@@ -287,8 +295,6 @@
                                 throw $th;
                             }
                         }
-
-                        
 
                     }else{
                         echo json_encode([

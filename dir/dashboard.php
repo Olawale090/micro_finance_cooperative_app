@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="icon" href="../assets/images/cooperative_icon.png" sizes="16x16">
     <link rel="stylesheet" href="../styles/app.css">
     <link rel="stylesheet" href="../styles/register.css">
     <link rel="stylesheet" href="../styles/loan_request.css">
@@ -24,11 +25,11 @@
                 <li class="fullname">full name</li>
 
                 <button class="make_deposit">
-                    <a class="deposit_link" href="deposit.html">Deposit</a>
+                    <a class="deposit_link" href="deposit.php">Deposit</a>
                 </button>
 
                 <button class="payment_records">
-                    <a class="payment_link" href="payment_history.html">Payment history</a>
+                    <a class="payment_link" href="payment_history.php">Payment history</a>
                 </button>
 
                 <button class="log_out">
@@ -79,7 +80,7 @@
 
             <div class="user_actions_parent">
                 <button class="user_actions pay_loan_btn">
-                    <a class="pay_loan_link" href="loan_repayment.html">Pay loan</a>
+                    <a class="pay_loan_link" href="loan_repayment.php">Pay loan</a>
                 </button>
             </div> 
         </list>
@@ -91,7 +92,7 @@
 
             <div class="user_actions_parent">
                 <button class="user_actions get_loan_btn">
-                    <a class="get_loan_link" href="loan_request.html">Get loan </a> 
+                    <a class="get_loan_link" href="loan_request.php">Get loan </a> 
                 </button>
             </div> 
         </list>
@@ -104,7 +105,7 @@
             </div>
             <div class="user_actions_parent">
                 <button class="user_actions get_loan_btn">
-                    <a class="get_loan_link" href="loan_request.html">Get loan </a>
+                    <a class="get_loan_link" href="loan_request.php">Get loan </a>
                 </button>
             </div>
         </list>

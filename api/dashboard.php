@@ -101,7 +101,9 @@
                             "account_number"=>$this->user_account_number,
                             "bank"=>$this->user_bank,
                             "dob"=>$this->user_dob,
-                            "initial_balance"=>$this->initial_balance
+                            "initial_savings"=>$this->initial_balance,
+                            "maximum_loan_capacity"=>0,
+                            "account_status"=>"NOT DEFAULT"
                         ],
                         "message"=>"sufficient data not found please contact customer support",
                         "status"=>200
@@ -113,15 +115,38 @@
 
                     $_SESSION["CURRENT_SAVINGS"] = $data["current_savings"];
 
-                    echo json_encode([
+                    if(is_null($data["total_loans"])){
+                        echo json_encode([
                             "success"=>true,
                             "data"=>[
                                 "fullname"=>$data["name"],
                                 "account_number"=>$data["account"],
                                 "bvn"=> $this->user_bvn,
-                                "total_deposit"=>$data["total_deposit"],
+                                "amount_saved"=>$data["total_deposit"],
                                 "recent_deposit"=>$data["last_deposit"],
-                                "total_loans"=>$data["total_loans"],
+                                "amount_owed"=>$data["total_loans"],
+                                "initial_savings"=>dashboard_config::INITIAL_ACCOUNT_DEPOSIT->value,
+                                "current_savings"=>$data["current_savings"],
+                                "loan_deadline"=>$data["loan_deadline"],
+                                "account_status"=>"NOT DEFAULT"
+                            ],
+
+                            "message"=>"Deposit records found successfuly",
+                            "status"=>200
+                        ]);
+                    }
+
+
+                    if(!is_null($data["total_loans"])){
+                        echo json_encode([
+                            "success"=>true,
+                            "data"=>[
+                                "fullname"=>$data["name"],
+                                "account_number"=>$data["account"],
+                                "bvn"=> $this->user_bvn,
+                                "amount_saved"=>$data["total_deposit"],
+                                "recent_deposit"=>$data["last_deposit"],
+                                "amount_owed"=>$data["total_loans"],
                                 "initial_savings"=>dashboard_config::INITIAL_ACCOUNT_DEPOSIT->value,
                                 "current_savings"=>$data["current_savings"],
                                 "loan_deadline"=>$data["loan_deadline"],
@@ -131,6 +156,7 @@
                             "message"=>"Deposit records found successfuly",
                             "status"=>200
                         ]);
+                    }
                     
                 }
             }
